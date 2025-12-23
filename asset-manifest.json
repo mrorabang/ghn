@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ghn_truc/static/css/main.08ce6544.css",
+    "main.js": "/ghn_truc/static/js/main.40ee50b0.js",
+    "static/js/453.86f2ee17.chunk.js": "/ghn_truc/static/js/453.86f2ee17.chunk.js",
+    "index.html": "/ghn_truc/index.html",
+    "main.08ce6544.css.map": "/ghn_truc/static/css/main.08ce6544.css.map",
+    "main.40ee50b0.js.map": "/ghn_truc/static/js/main.40ee50b0.js.map",
+    "453.86f2ee17.chunk.js.map": "/ghn_truc/static/js/453.86f2ee17.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.08ce6544.css",
+    "static/js/main.40ee50b0.js"
+  ]
+}
