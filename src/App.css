@@ -1,38 +1,1543 @@
+/* Reset và base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
 .App {
+  text-align: left;
+}
+
+/* Page container */
+.excel-page {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1400px;
+}
+
+/* Header styles */
+.excel-page h1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.excel-page p {
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.excel-page strong {
+  color: #4b5563;
+  font-weight: 600;
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btn-outline {
+  background: white;
+  color: #4b5563;
+  border: 2px solid #e5e7eb;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+/* Button container */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+/* Table styles */
+.excel-table-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  background: white;
+}
+
+.excel-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.875rem;
+  table-layout: fixed;
+}
+
+.excel-table th,
+.excel-table td {
+  width: 100px;
+}
+
+/* Thống kê tổng số ca làm việc */
+.stats-card {
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  padding: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.stats-card h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.75rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.employee-stat-card {
+  background: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.employee-stat-card:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.employee-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #475569;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.employee-shift-count {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-top: 0.25rem;
+}
+
+.shift-label {
+  font-size: 0.625rem;
+  color: #64748b;
+}
+
+.excel-table th {
+  background-color: #fff79d;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.excel-table th:first-child {
+  min-width: 100px;
+  background: linear-gradient(135deg, #475569 0%, #334155 100%);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.excel-table td {
+  padding: 0.25rem 0.4rem;
+  border: 1px solid #e5e7eb;
+  vertical-align: top;
+  min-height: 0;
+  transition: background-color 0.2s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.excel-table tr:hover td {
+  background-color: #f8fafc;
+}
+
+.excel-table tr:nth-child(even) td {
+  background-color: #fafbfc;
+}
+
+.excel-table tr:nth-child(even):hover td {
+  background-color: #f1f5f9;
+}
+
+.excel-table td:first-child {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  font-weight: 600;
+  color: #374151;
+  position: sticky;
+  left: 0;
+  z-index: 5;
+}
+
+/* Cell content */
+.cell-employee {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  margin: 0.125rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  color: #1e40af;
+  border: 1px solid #93c5fd;
+  transition: all 0.2s ease;
+}
+
+.cell-employee:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.cell-empty {
+  color: #9ca3af;
+  font-style: italic;
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 0.25rem 0.4rem;
+}
+
+/* Date headers */
+.date-header {
+  text-align: center;
+  min-width: 80px;
+}
+
+.date-header .date-label {
+  font-weight: 700;
+  color: #374151;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.date-header .weekday {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Shift row */
+.shift-name {
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.shift-time {
+  color: #6b7280;
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.shift-required {
+  color: #9ca3af;
+  font-size: 0.7rem;
+}
+
+/* Loading state */
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+/* Month selector styling */
+.month-selector {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.month-selector select {
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.month-selector select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.month-selector button {
+  border: none;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.month-selector button:hover {
+  background: #e5e7eb;
+  transform: scale(1.05);
+}
+
+/* Footer note */
+.footer-note {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #6b7280;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .excel-page {
+    margin: 1rem;
+    padding: 1rem;
   }
+  
+  .excel-page h1 {
+    font-size: 2rem;
+  }
+  
+  .button-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-success,
+  .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .excel-table-wrapper {
+    font-size: 0.75rem;
+  }
+  
+  .excel-table th,
+  .excel-table td {
+    padding: 0.5rem;
+    min-width: 60px;
+  }
+  
+  .excel-table th:first-child,
+  .excel-table td:first-child {
+    min-width: 150px;
+  }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-container {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 32rem;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.modal-close-btn {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: #64748b;
+  transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  max-height: calc(90vh - 8rem);
+  overflow-y: auto;
+}
+
+.modal-form-group {
+  margin-bottom: 1rem;
+}
+
+.modal-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.modal-label .required {
+  color: #ef4444;
+}
+
+.modal-input,
+.modal-textarea,
+.modal-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  background: white;
+}
+
+.modal-input:focus,
+.modal-textarea:focus,
+.modal-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.modal-input.error,
+.modal-textarea.error,
+.modal-select.error {
+  border-color: #ef4444;
+}
+
+.modal-textarea {
+  resize: none;
+  min-height: 6rem;
+}
+
+.modal-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.modal-checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-checkbox {
+  width: 1rem;
+  height: 1rem;
+  color: #3b82f6;
+  border-color: #d1d5db;
+  border-radius: 0.25rem;
+}
+
+.modal-error {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #ef4444;
+}
+
+.modal-error-box {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 0.5rem;
+  color: #dc2626;
+  font-size: 0.875rem;
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.modal-footer-left {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.modal-footer-right {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.modal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.modal-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modal-btn-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+}
+
+.modal-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.modal-btn-secondary {
+  background: white;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+}
+
+.modal-btn-secondary:hover:not(:disabled) {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.modal-btn-danger {
+  color: #dc2626;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.modal-btn-danger:hover:not(:disabled) {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading state */
+.modal-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.modal-loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.modal-loading::before {
+  content: '';
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #e5e7eb;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  z-index: 1;
+}
+
+@keyframes spin {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* EmployeeModalManager Styles */
+.employee-manager-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.employee-manager-container {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+}
+
+.employee-manager-header {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.employee-manager-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.employee-manager-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.employee-manager-close-btn {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.employee-manager-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.employee-manager-search {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.employee-manager-search-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.employee-manager-search-input-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.employee-manager-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  width: 1rem;
+  height: 1rem;
+}
+
+.employee-manager-search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  background: white;
+}
+
+.employee-manager-search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.employee-manager-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.employee-manager-add-btn:hover {
+  background: #2563eb;
+}
+
+.employee-manager-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  max-height: calc(90vh - 200px);
+}
+
+.employee-manager-empty {
+  text-align: center;
+  padding: 3rem;
+}
+
+.employee-manager-empty-icon {
+  width: 4rem;
+  height: 4rem;
+  color: #cbd5e1;
+  margin: 0 auto 1rem;
+}
+
+.employee-manager-empty-text {
+  color: #64748b;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.employee-manager-empty-add-btn {
+  padding: 0.75rem 1rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.employee-manager-empty-add-btn:hover {
+  background: #2563eb;
+}
+
+.employee-manager-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.employee-manager-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+
+.employee-manager-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.employee-manager-card-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.employee-manager-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.employee-manager-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.employee-manager-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #dbeafe;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+}
+
+.employee-manager-name {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 1.125rem;
+}
+
+.employee-manager-position {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  margin-left: 0.5rem;
+}
+
+.employee-manager-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.employee-manager-detail-label {
+  font-weight: 500;
+  color: #374151;
+}
+
+.employee-manager-detail-value {
+  color: #6b7280;
+}
+
+.employee-manager-assignments {
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.employee-manager-deadline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #d97706;
+  background: #fef3c7;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.employee-manager-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+.employee-manager-action-btn {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.employee-manager-edit-btn {
+  color: #3b82f6;
+}
+
+.employee-manager-edit-btn:hover {
+  background: #dbeafe;
+}
+
+.employee-manager-delete-btn {
+  color: #dc2626;
+}
+
+.employee-manager-delete-btn:hover {
+  background: #fef2f2;
+}
+
+.employee-manager-footer {
+  border-top: 1px solid #e2e8f0;
+  padding: 1rem 1.5rem;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.employee-manager-close-footer-btn {
+  padding: 0.75rem 1rem;
+  background: #e2e8f0;
+  color: #374151;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deadline-manager-close-footer-btn:hover {
+  background: #cbd5e1;
+}
+
+/* DeadlineModalManager Styles */
+.deadline-manager-header {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.deadline-manager-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.deadline-manager-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.deadline-manager-close-btn {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.deadline-manager-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.deadline-manager-search {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.deadline-manager-search-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.deadline-manager-search-input-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.deadline-manager-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  width: 1rem;
+  height: 1rem;
+}
+
+.deadline-manager-search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  background: white;
+}
+
+.deadline-manager-search-input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.deadline-manager-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deadline-manager-add-btn:hover {
+  background: #059669;
+}
+
+.deadline-manager-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  max-height: calc(90vh - 200px);
+}
+
+.deadline-manager-empty {
+  text-align: center;
+  padding: 3rem;
+}
+
+.deadline-manager-empty-icon {
+  width: 4rem;
+  height: 4rem;
+  color: #cbd5e1;
+  margin: 0 auto 1rem;
+}
+
+.deadline-manager-empty-text {
+  color: #64748b;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.deadline-manager-empty-add-btn {
+  padding: 0.75rem 1rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deadline-manager-empty-add-btn:hover {
+  background: #059669;
+}
+
+.deadline-manager-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.deadline-manager-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+
+.deadline-manager-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.deadline-manager-card-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.deadline-manager-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.deadline-manager-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.deadline-manager-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #d1fae5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10b981;
+}
+
+.deadline-manager-name {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 1.125rem;
+}
+
+.deadline-manager-description {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  margin-left: 0.5rem;
+}
+
+.deadline-manager-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.deadline-manager-detail-label {
+  font-weight: 500;
+  color: #374151;
+}
+
+.deadline-manager-detail-value {
+  color: #6b7280;
+}
+
+.deadline-manager-assignments {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.deadline-manager-employees {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 0.5rem;
+}
+
+.deadline-manager-employees-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.deadline-manager-employee-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.deadline-manager-employee-chip {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.deadline-manager-employee-more {
+  background: #f3f4f6;
+  color: #6b7280;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.deadline-manager-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+.deadline-manager-action-btn {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deadline-manager-edit-btn {
+  color: #10b981;
+}
+
+.deadline-manager-edit-btn:hover {
+  background: #d1fae5;
+}
+
+.deadline-manager-delete-btn {
+  color: #dc2626;
+}
+
+.deadline-manager-delete-btn:hover {
+  background: #fef2f2;
+}
+
+.deadline-manager-footer {
+  border-top: 1px solid #e2e8f0;
+  padding: 1rem 1.5rem;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.deadline-manager-close-footer-btn {
+  padding: 0.75rem 1rem;
+  background: #e2e8f0;
+  color: #374151;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deadline-manager-close-footer-btn:hover {
+  background: #cbd5e1;
+}
+
+/* Extended Month Display Styles */
+.extended-month-header {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.next-month-indicator {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+.date-cell.next-month {
+  background: #fef3c7 !important;
+  border-color: #fbbf24 !important;
+}
+
+.date-cell.next-month .date-header {
+  color: #92400e !important;
+}
+
+.date-cell.next-month .day-name {
+  color: #b45309 !important;
+}
+
+/* MonthYearSelector Styles */
+.month-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.month-selector-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  background: white;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.month-selector-nav-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #475569;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.month-selector-nav-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.month-selector-nav-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(59, 130, 246, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.month-selector-nav-btn:hover::before {
+  opacity: 1;
+}
+
+.month-selector-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.month-selector-select {
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  background: white;
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+  position: relative;
+}
+
+.month-selector-select:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+.month-selector-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  background: white;
+}
+
+.month-selector-select option {
+  padding: 0.5rem;
+  background: white;
+  color: #374151;
+}
+
+.month-selector-month {
+  min-width: 140px;
+}
+
+.month-selector-year {
+  min-width: 100px;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .month-selector {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .month-selector-controls {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .month-selector-select {
+    flex: 1;
+    min-width: auto;
+  }
+}
+
+/* Animation for month/year change */
+.month-selector-select {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Focus states */
+.month-selector:focus-within .month-selector-nav-btn {
+  border-color: #cbd5e1;
+}
+
+/* Loading state */
+.month-selector.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.month-selector.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #e5e7eb;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  transform: translate(-50%, -50%);
 }
